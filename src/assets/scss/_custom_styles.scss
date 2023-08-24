@@ -1,0 +1,37 @@
+/*********************
+** General Styling
+*********************/
+
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#main {
+    flex: 1;
+    display: flex;
+}
+
+.icon-xs {
+    width: 20px;
+}
+
+.icon-sm {
+    width: 30px;
+}
+.icon-md {
+    width: 60px;
+}
+
+img, iframe {
+    max-width: 100%;
+}
+
+/*********************
+** Dashboard Styling
+*********************/
+
+.dashboard-row {
+    flex: 1;
+} 

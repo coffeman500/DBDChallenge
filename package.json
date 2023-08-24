@@ -1,0 +1,38 @@
+{
+  "name": "hardcoredbd",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev-scss": "npm-run-all --parallel dev scss-watch",
+    "dev": "vite",
+    "build": "run-p type-check build-only",
+    "preview": "vite preview",
+    "test:unit": "vitest",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "scss-watch": "sass --watch ./src/assets/scss/styles.scss ./src/assets/main.css"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.1",
+    "bootstrap-icons": "^1.10.5",
+    "pinia": "^2.1.6",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.0",
+    "@types/bootstrap": "^5.2.6",
+    "@types/jsdom": "^21.1.1",
+    "@types/node": "^18.17.0",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vue/test-utils": "^2.4.1",
+    "@vue/tsconfig": "^0.4.0",
+    "jsdom": "^22.1.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "~5.1.6",
+    "vite": "^4.4.6",
+    "vitest": "^0.33.0",
+    "vue-tsc": "^1.8.6"
+  }
+}
