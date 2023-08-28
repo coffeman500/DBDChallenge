@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import  { ref, computed } from 'vue';
 import PriceData from '../data/price_config.js';
-import type { ItemType } from '../types.js';
+import type { ItemType, PerkType } from '../types.js';
 
 export const useCartStore = defineStore('cart', () => {
     const items = ref([]);
@@ -20,7 +20,7 @@ export const useCartStore = defineStore('cart', () => {
             return total;
     });
 
-    function addItem(item: ItemType) {
+    function addItem(item: ItemType | PerkType) {
         items.value.push(item);
     };
 

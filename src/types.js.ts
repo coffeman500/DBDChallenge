@@ -7,6 +7,12 @@ export interface ItemType {
     quantity?: number,
 }
 
+export interface PerkType {
+    name: string,
+    image: string,
+    character: string,
+}
+
 export interface SurvivorType {
     id: string,
     name: string,

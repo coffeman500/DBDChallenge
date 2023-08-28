@@ -3,6 +3,7 @@ let PriceData = {
     "uncommon": 4000,
     "rare": 6000,
     "veryrare": 8000,
-    "ultrarare": 10000
+    "ultrarare": 10000,
+    "perk_general": 50000,
 }
 export default PriceData;

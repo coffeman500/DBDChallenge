@@ -26,5 +26,17 @@ export const useLoadoutStore = defineStore('loadout', () => {
         if (!newSurvivor.disabled) survivor.value = newSurvivor;
     }
 
-    return { survivor, perks, item, addons, offering, getSurvivorDetails, selectSurvivor };
+    function getPerkDetails(index: number) {
+        if (typeof(perks[index]) === 'undefined') {
+            return {
+                name: 'No perk selected',
+                image: 'https://placehold.co/150x150',
+                type: 'perk'
+            }
+        } else {
+            return perks[index];
+        }
+    }
+
+    return { survivor, perks, item, addons, offering, getSurvivorDetails, selectSurvivor, getPerkDetails };
 });

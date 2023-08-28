@@ -1,11 +1,24 @@
 <script setup lang="ts">
-    import { ref } from 'vue';
+    import { ref, computed } from 'vue';
     import StoreItem from './StoreItem.vue';
+    import StorePerk from './StorePerk.vue';
+    import Perks from '../data/surv_perks.js';
     import Items from '../data/surv_items.js';
     import Addons from '../data/surv_addons.js';
 
     const typeFilter = ref('');
     const searchFilter = ref('');
+
+    const generalPerks = computed(() => {
+        let filteredPerks = {};
+        for (const key in Perks) {
+            if (Perks[key].character === null) {
+                filteredPerks[key] = Perks[key];
+                Perks[key].rarity = 'perk_general';
+            }
+        }
+        return filteredPerks;
+    });
 
     function toggleTypeFilter(type: string): void {
         if (typeFilter.value === type) {
@@ -27,6 +40,10 @@
         <div class="store-filters row g-2">
 
             <div class="col-6 col-md-auto">
+                <button class="btn" :class="filterButtonClass('perk')" @click="toggleTypeFilter('perk')">Perks</button>
+            </div>
+
+            <div class="col-6 col-md-auto">
                 <button class="btn" :class="filterButtonClass('item')" @click="toggleTypeFilter('item')">Items</button>
             </div>
 
@@ -45,6 +62,13 @@
 
         <div class="store-items">
             <div class="row g-4">
+
+                <StorePerk 
+                    v-for="perk in generalPerks" 
+                    :perk="perk"
+                    :key="perk.name" 
+                    :typeFilter="typeFilter"
+                />
 
                 <StoreItem 
                     v-for="item in Items" 
