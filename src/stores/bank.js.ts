@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import  { ref } from 'vue';
 
 export const useBankStore = defineStore('bank', () => {
-    const bp = ref(100000);
+    const bp = ref(1000000);
 
     function canAfford(n: number): boolean {
         return n <= bp.value;

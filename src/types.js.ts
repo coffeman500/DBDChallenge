@@ -11,6 +11,7 @@ export interface PerkType {
     name: string,
     image: string,
     character: string,
+    quantity?: number,
 }
 
 export interface SurvivorType {

@@ -3,19 +3,24 @@
     import PriceData from '../data/price_config.js';
     import { computed } from 'vue';
     import { useCartStore } from '../stores/cart.js';
+    import { useInventoryStore } from '../stores/inventory.js';
     
-
     const props = defineProps<{
         perk: PerkType,
         typeFilter: string,
     }>()
 
     const cart = useCartStore();
+    const inventory = useInventoryStore();
+
+    const isInCartOrInventory = computed(() => {
+        return cart.items.indexOf(props.perk) >= 0 || inventory.items.indexOf(props.perk) >= 0;
+    });
 
 </script>
 
 <template>
-    <div class="store-item col-4 col-sm-3 col-md-2 col-lg-3 col-xl-2 col-xxl-1" @click="cart.addItem(perk)" v-show="typeFilter == '' || typeFilter == 'perk'">
+    <div class="store-item col-4 col-sm-3 col-md-2 col-lg-3 col-xl-2 col-xxl-1" @click="cart.addItem(perk)" v-show="!isInCartOrInventory && (typeFilter == '' || typeFilter == 'perk')">
         <div class="store-item-inner">
 
             <div class="store-item-icon">

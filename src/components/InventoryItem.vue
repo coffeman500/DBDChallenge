@@ -1,9 +1,9 @@
 <script setup lang="ts">
-    import { ItemType } from '../types.js';
+    import { ItemType, PerkType } from '../types.js';
     import { useInventoryStore } from '../stores/inventory.js';
 
     const props = defineProps<{
-        item: ItemType,
+        item: ItemType | PerkType,
         index: string,
     }>()
 
@@ -19,7 +19,7 @@
                 <img :src="item.image" :alt="item.name" />
             </div>
 
-            <div class="inventory-item-quantity">{{ item.quantity }}</div>
+            <div class="inventory-item-quantity" v-show="item.quantity > 1">{{ item.quantity }}</div>
 
         </div>
     </div>
