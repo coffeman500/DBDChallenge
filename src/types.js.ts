@@ -8,6 +8,7 @@ export interface ItemType {
 }
 
 export interface PerkType {
+    rarity: string,
     name: string,
     image: string,
     character: string,

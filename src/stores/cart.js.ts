@@ -4,7 +4,7 @@ import PriceData from '../data/price_config.js';
 import type { ItemType, PerkType } from '../types.js';
 
 export const useCartStore = defineStore('cart', () => {
-    const items = ref([]);
+    const items = ref<Array<ItemType | PerkType>>([]);
     
     const numItems = computed(() => {
         return items.value.length;
@@ -14,7 +14,7 @@ export const useCartStore = defineStore('cart', () => {
             let total = 0;
 
             for (let i = 0; i < numItems.value; i++) {
-                total += PriceData[items.value[i].rarity];
+                total += PriceData[items.value[i].rarity as keyof typeof PriceData];
             }
         
             return total;

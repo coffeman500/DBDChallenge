@@ -8,7 +8,7 @@
     const props = defineProps<{
         perk: PerkType,
         typeFilter: string,
-    }>()
+    }>();
 
     const cart = useCartStore();
     const inventory = useInventoryStore();
